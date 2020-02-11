@@ -1,0 +1,6 @@
+fix lisence
+
+get on git hub
+
+make it usable on cli
+

@@ -1,0 +1,8 @@
+Name: Default World
+Category: World
+Type: Definition
+Attribute:
+  Size:
+    - Height: 25
+      Width: 25
+
