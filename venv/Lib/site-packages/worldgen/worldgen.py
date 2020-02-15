@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import sys
-from src.worldgen import commands as commands
-
+from worldgen.commands import create
 
 
 def main (args=None):
@@ -9,6 +8,6 @@ def main (args=None):
         args = sys.argv
 
     if args[1] == "create":
-        commands.create()
+        create()
 
 
