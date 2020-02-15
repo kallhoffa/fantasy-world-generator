@@ -19,7 +19,7 @@ setup(
      ),
      entry_points={
             "console_scripts": [
-                "worldgen=worldgen.worldgen:main"
+                "worldgen=worldgen.cli.main:main"
             ]
      },
      classifiers=[
