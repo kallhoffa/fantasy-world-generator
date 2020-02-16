@@ -1,6 +1,9 @@
 fix lisence
 
-get on git hub
-
 make it usable on cli
 
+    finish parter
+    finish create main parser
+    finish main parser - parse command
+    finish create command
+    finish command main

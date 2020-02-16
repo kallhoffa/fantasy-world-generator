@@ -2,6 +2,8 @@
 """
 
 import sys
+import os
+import worldgen.exceptions import WorldgenError
 
 # unfinished
 from worldgen.cli.main_parser import parse_command
@@ -17,8 +19,10 @@ def main(args=None):
 
     try:
         cmd_name, cmd_args = parse_command(args)
-    except:
-#         create worldgen error
+    except WorldgenError as exc:
+        sys.stderr.write("ERROR: {}".format(exc))
+        sys.stderr.write(os.linesep)
+        sys.exit(1)
 
     command = create_command(cmd_name)
 
