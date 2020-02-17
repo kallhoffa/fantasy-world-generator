@@ -11,6 +11,6 @@ def get_worldgen_version():
 
     return (
         'worldgen {} from {} (python {})'.format(
-            __version__, worldgen_pkg_dir, get_worldgen_version(),
+            __version__, worldgen_pkg_dir, get_major_minor_version(),
         )
     )

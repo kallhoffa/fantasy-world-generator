@@ -3,11 +3,9 @@
 
 import sys
 import os
-import worldgen.exceptions import WorldgenError
 
-# unfinished
+from worldgen.exceptions import WorldgenError
 from worldgen.cli.main_parser import parse_command
-# unfinished
 from worldgen.commands import create_command
 
 def main(args=None):

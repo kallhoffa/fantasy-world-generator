@@ -11,7 +11,12 @@ from worldgen.exceptions import CommandError
 
 def create_main_parser():
 
-    parser = ConfigOptionParser()
+    parser_kw = {
+        'add_help_option': False,
+        'name': 'global',
+    }
+
+    parser = ConfigOptionParser(**parser_kw)
     parser.disable_interspersed_args()
 
     parser.version = get_worldgen_version()
@@ -22,7 +27,7 @@ def create_main_parser():
 
     #create command listing for description
     description = [''] + [
-        '%-27s %s' % (name, command_info.summary)
+        '{:27}{}\n'.format(name, command_info.summary)
         for name, command_info in commands_dict.items()
     ]
     parser.description = '\n'.join(description)
@@ -52,7 +57,7 @@ def parse_command(args):
         sys.stdout.write(os.linesep)
         sys.exit()
 
-    if not args_else or (args_else[0] == 'help' and len(args_else) == 1 :
+    if not args_else or (args_else[0] == 'help' and len(args_else) == 1):
         parser.print_help()
         sys.exit()
 

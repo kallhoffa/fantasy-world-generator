@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
      name='worldgen',
-     version='0.1',
+     version='0.0.1',
      author="Anthony Kallhoff",
      author_email="kallhoffa@gmail.com",
      description="A generator that helps DM's take their worlds to the next level",
@@ -17,6 +17,9 @@ setup(
         where="src",
         exclude=["docs"],
      ),
+     install_requires=[
+        'numpy',
+     ],
      entry_points={
             "console_scripts": [
                 "worldgen=worldgen.cli.main:main"

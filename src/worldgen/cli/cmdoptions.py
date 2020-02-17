@@ -5,8 +5,8 @@ globally. One reason being that options with action='append' can carry state
 between parses. worldgen parses general options twice internally, and shouldn't
 pass on state. To be consistent, all options will follow this design.
 """
-
-from optparse import OptionGroup
+from functools import partial
+from optparse import OptionGroup, Option
 
 def make_option_group(group, parser):
 
@@ -29,19 +29,27 @@ def make_option_group(group, parser):
 help_ = partial(
     Option,
     '-h', '--help',
-    dest='help'
+    dest='help',
     action='help',
     help='Show help.',
 ) # type : Callable[..., Option]
 
+version = partial(
+    Option,
+    '-V', '--version',
+    dest='version',
+    action='store_true',
+    help='Show version and exit.',
+)  # type: Callable[..., Option]
 
 ##########
 # groups #
 ##########
 
 general_group = {
-    'name': 'General Options'
+    'name': 'General Options',
     'options': [
-        'help_',
+        help_,
+        version,
     ]
 } # type: Dict[str, Any]

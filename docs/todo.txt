@@ -1,9 +1,3 @@
 fix lisence
+go back look at the first try in help.py. is worldgen help being handled?
 
-make it usable on cli
-
-    finish parter
-    finish create main parser
-    finish main parser - parse command
-    finish create command
-    finish command main
