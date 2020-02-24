@@ -1,5 +1,6 @@
 from worldgen.cli.base_command import Command
 import numpy as np
+import datetime
 
 class CreateCommand(Command):
     """
@@ -30,16 +31,35 @@ class CreateCommand(Command):
                  "Currently in matrix height. ",
         )
 
+        cmd_opts.add_option(
+            '--name',
+            action='store',
+            dest='item_name',
+            default=''.join(['worldgen_world_', datetime.now()]),
+            help="Set the name for your new world.",
+        )
+
+        cmd_opts.add_option(
+            '--path',
+            action='store',
+            dest='file_path',
+            default='..'
+        )
+
         print("Int Create")
 
     def run(self, options, args):
         print("Running create. Your string is {}".format(args))
 
-        self.height = int(options.item_height)
-        self.width = int(options.item_width)
-
         if (args[0].lower() == "world") :
+
+            self.height = int(options.item_height)
+            self.width = int(options.item_width)
+            self.name = int(options.item_name)
+
             a = np.arange( self.width * self.height ).reshape( self.width, self.height )
+            np.save(self.name, a)
+
             print(a)
         else :
             print("{} is not an option for create".format(args[0]))
