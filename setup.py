@@ -11,7 +11,7 @@ setup(
      description="A generator that helps DM's take their worlds to the next level",
      long_description=long_description,
      long_description_content_type="text/markdown",
-     url="https://github.com/javatechy/dokr",
+     url="https://github.com/kallhoffa/fantasy-world-generator",
      package_dir={"": "src"},
      packages=find_packages(
         where="src",
